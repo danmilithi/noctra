@@ -41,7 +41,7 @@ header h1 {
 .profiles {
 	list-style: none; /* Remove marcadores padrão da lista */
 	display: grid; /* Organiza os perfis em grade */
-	grid-template-columns: repeat(auto-fit, minmax(120px, 180px)); /* Cria colunas responsivas com largura mínima e máxima */
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Cria colunas responsivas com largura mínima e máxima */
 	justify-content: center; /* Centraliza a grade no eixo horizontal */
 	gap: 2rem; /* Define espaço entre os itens da grade */
 }
@@ -79,6 +79,12 @@ header h1 {
 .profile:hover figcaption,
 .profile:focus-within figcaption {
 	color: var(--text); /* Destaca a legenda ao passar o mouse ou focar via teclado */
+}
+
+.profile button {
+	all: unset; /* Remove estilo padrão do botão */
+	cursor: pointer; /* Indica que o elemento é interativo */
+	display: block; /* Garante que o botão ocupe toda a área do perfil para facilitar a interação */
 }
 
 @media (max-width: 540px) {
