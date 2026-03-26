@@ -1,94 +1,94 @@
 :root {
-	--bg: #141414;
-	--bg-soft: #1f1f1f;
-	--text: #ffffff;
-	--text-muted: #8c8c8c;
-	--accent: #e50914;
-	--border: #333333;
+	--bg: #141414; /* Define a cor de fundo principal do tema */
+	--bg-soft: #1f1f1f; /* Define uma variação de fundo para superfícies secundárias */
+	--text: #ffffff; /* Define a cor principal dos textos */
+	--text-muted: #8c8c8c; /* Define a cor para textos com menor destaque */
+	--accent: #e50914; /* Define a cor de destaque da interface */
+	--border: #333333; /* Define a cor padrão para bordas */
 }
 
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+	box-sizing: border-box; /* Faz largura/altura incluírem padding e borda no cálculo */
+	margin: 0; /* Remove margens padrão dos elementos */
+	padding: 0; /* Remove preenchimentos padrão dos elementos */
 }
 
 body {
-	min-height: 100vh;
+	min-height: 100vh; /* Garante altura mínima de uma tela inteira */
 	background:
 		radial-gradient(circle at 20% 20%, #232323 0, transparent 42%),
 		radial-gradient(circle at 80% 80%, #1c1c1c 0, transparent 48%),
-		var(--bg);
-	color: var(--text);
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+		var(--bg); /* Aplica gradientes decorativos sobre a cor base de fundo */
+	color: var(--text); /* Define a cor padrão dos textos da página */
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Define a família tipográfica principal */
 }
 
 main {
-	min-height: 100vh;
-	display: grid;
-	place-content: center;
-	gap: 2.5rem;
-	padding: 2rem 1rem;
+	min-height: 100vh; /* Mantém a área principal ocupando ao menos toda a altura da tela */
+	display: grid; /* Usa CSS Grid para organizar o conteúdo */
+	place-content: center; /* Centraliza o conteúdo na horizontal e vertical */
+	gap: 2.5rem; /* Define espaçamento entre os blocos filhos */
+	padding: 2rem 1rem; /* Adiciona respiro interno vertical e horizontal */
 }
 
 header h1 {
-	font-size: clamp(1.8rem, 4vw, 3.2rem);
-	font-weight: 500;
-	text-align: center;
-	letter-spacing: 0.02em;
+	font-size: clamp(1.8rem, 4vw, 3.2rem); /* Ajusta o tamanho da fonte de forma responsiva com limites */
+	font-weight: 500; /* Define espessura média da fonte */
+	text-align: center; /* Centraliza o texto do título */
+	letter-spacing: 0.02em; /* Ajusta o espaçamento entre letras */
 }
 
 .profiles {
-	list-style: none;
-	display: grid;
-	grid-template-columns: repeat(2, minmax(120px, 180px));
-	justify-content: center;
-	gap: 2rem;
+	list-style: none; /* Remove marcadores padrão da lista */
+	display: grid; /* Organiza os perfis em grade */
+	grid-template-columns: repeat(auto-fit, minmax(120px, 180px)); /* Cria colunas responsivas com largura mínima e máxima */
+	justify-content: center; /* Centraliza a grade no eixo horizontal */
+	gap: 2rem; /* Define espaço entre os itens da grade */
 }
 
 .profile figure {
-	display: grid;
-	gap: 0.85rem;
-	justify-items: center;
-	cursor: pointer;
+	display: grid; /* Usa grade para empilhar imagem e legenda */
+	gap: 0.85rem; /* Espaçamento entre os elementos internos do figure */
+	justify-items: center; /* Centraliza os itens internos horizontalmente */
+	cursor: pointer; /* Mostra cursor de interação ao passar o mouse */
 }
 
 .profile img {
-	width: 100%;
-	aspect-ratio: 1 / 1;
-	object-fit: cover;
-	border-radius: 6px;
-	border: 3px solid transparent;
-	background: var(--bg-soft);
-	transition: transform 180ms ease, border-color 180ms ease, filter 180ms ease;
+	width: 100%; /* Faz a imagem ocupar toda a largura disponível */
+	aspect-ratio: 1 / 1; /* Mantém proporção quadrada da imagem */
+	object-fit: cover; /* Recorta a imagem para preencher a área sem distorcer */
+	border-radius: 6px; /* Arredonda os cantos da imagem */
+	border: 3px solid transparent; /* Reserva espaço de borda sem exibir cor inicialmente */
+	background: var(--bg-soft); /* Define fundo visível enquanto a imagem carrega */
+	transition: transform 180ms ease, border-color 180ms ease, filter 180ms ease; /* Suaviza animações de transformação, borda e brilho */
 }
 
 .profile figcaption {
-	color: var(--text-muted);
-	font-size: 1.1rem;
-	transition: color 180ms ease;
+	color: var(--text-muted); /* Define cor inicial mais discreta para a legenda */
+	font-size: 1.1rem; /* Define tamanho da fonte da legenda */
+	transition: color 180ms ease; /* Suaviza a mudança de cor da legenda */
 }
 
 .profile:hover img,
 .profile:focus-within img {
-	transform: translateY(-3px) scale(1.02);
-	border-color: var(--text);
-	filter: brightness(1.05);
+	transform: translateY(-3px) scale(1.02); /* Eleva e amplia levemente a imagem ao interagir */
+	border-color: var(--text); /* Exibe borda em destaque no estado interativo */
+	filter: brightness(1.05); /* Aumenta um pouco o brilho da imagem */
 }
 
 .profile:hover figcaption,
 .profile:focus-within figcaption {
-	color: var(--text);
+	color: var(--text); /* Destaca a legenda ao passar o mouse ou focar via teclado */
 }
 
 @media (max-width: 540px) {
 	main {
-		gap: 1.75rem;
+		gap: 1.75rem; /* Reduz espaçamento entre blocos em telas menores */
 	}
 
 	.profiles {
-		grid-template-columns: 1fr;
-		width: min(260px, 80vw);
-		margin: 0 auto;
+		grid-template-columns: 1fr; /* Exibe os perfis em uma única coluna no mobile */
+		width: min(260px, 80vw); /* Limita largura da lista para manter boa leitura */
+		margin: 0 auto; /* Centraliza a lista horizontalmente */
 	}
 }
