@@ -9,12 +9,13 @@
 <body>
     <main>
         <header>
+            <img src="assets/logo-catalogo.png" class="logo">
             <h1>Quem está assistindo?</h1>
         </header>
         <section aria-label="Perfis disponíveis">
             <ul class="profiles">
                 <li class="profile">
-                    <button>
+                    <button class="profile-button">
                     <figure>
                         <img src="assets/perfil1.png" alt="Perfil Daniel">
                         <figcaption>Daniel</figcaption>
@@ -22,7 +23,7 @@
                     </button>
                 </li>
                 <li class="profile">
-                    <button>
+                    <button class="profile-button">
                     <figure>
                         <img src="assets/perfil2.png" alt="Perfil Mariana">
                         <figcaption>Mariana</figcaption>
@@ -30,7 +31,7 @@
                     </button>
                 </li>
                 <li class="profile">
-                    <button>
+                    <button class="profile-button">
                     <figure>
                         <img src="assets/perfil3.png" alt="Perfil Thiago">
                         <figcaption>Thiago</figcaption>
@@ -38,7 +39,7 @@
                     </button>
                 </li>
                 <li class="profile">
-                    <button>
+                    <button class="profile-button">
                     <figure>
                         <img src="assets/perfil4.png" alt="Perfil Gabriel">
                         <figcaption>Gabriel</figcaption>
@@ -48,5 +49,24 @@
             </ul>
         </section>
     </main>
+    <script>
+        const profileButtons = document.querySelectorAll('.profile-button');
+
+        profileButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const image = button.querySelector('img');
+                const name = button.querySelector('figcaption');
+
+                const selectedProfile = {
+                    name: name ? name.textContent.trim() : 'Seu nome',
+                    image: image ? image.getAttribute('src') : ''
+                };
+
+                localStorage.setItem('selectedProfile', JSON.stringify(selectedProfile));
+                window.location.href = 'catalogo/catalogo.html';
+            });
+        });
+    </script>
+    <script src="js/index.js"></script>
 </body>
 </html>

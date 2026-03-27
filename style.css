@@ -38,6 +38,14 @@ header h1 {
 	letter-spacing: 0.02em; /* Ajusta o espaçamento entre letras */
 }
 
+.logo {
+	width: 420px; /* Define a largura da logo para garantir boa visibilidade */
+	align-items: center; /* Alinha a logo verticalmente ao centro do header */
+	display: block; /* Garante que a logo seja tratada como um bloco para centralização */
+	margin: 0 auto 20px; /* Centraliza a logo horizontalmente e adiciona margem inferior para separar do título */
+	filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); /* Adiciona uma sombra sutil para destacar a logo do fundo */
+}
+
 .profiles {
 	list-style: none; /* Remove marcadores padrão da lista */
 	display: grid; /* Organiza os perfis em grade */
